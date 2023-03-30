@@ -1,26 +1,29 @@
 import ReactDOM from 'react-dom'
 import { Canvas } from '@react-three/fiber'
 import { useFrame } from '@react-three/fiber';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
+import BoxGenerator from './BoxGenerator';
 
 
 function BGCanvas() {
 	
-  const [z, setZ] = useState(-2);
+  // const [z, setZ] = useState(-2);
 
 	return (
-		<div id="canvas-container" style={{ width: "100vw", height: "100vh", backgroundColor: "white" }}>
+		<div id="canvas-container" style={{ width: "100vw", height: "100vh", backgroundColor: "black" }}>
 			<Canvas 
-				
-				camera={{ fov: 70, position: [0,0,z] }}
+				camera={{ fov: 70, position: [0,0,-5] }}
 			>
-				<ambientLight intensity={0.3} />
-				<Animator setZ={setZ} z={z}/>
-				<mesh position={[0,0,0]}>
+				<ambientLight intensity={1.9} />
+				<CameraMove />
+				{/* <Animator /> */}
+				{/* <DelayedSpinningBox /> */}
+				<BoxGenerator />
+				{/* <mesh position={[0,0,0]} onClick={(e) => console.log('click')}>
 					<boxGeometry />
 					<meshStandardMaterial />
-				</mesh>
+				</mesh> */}
 			</Canvas>
 		</div>
 	)
@@ -29,63 +32,62 @@ function BGCanvas() {
 export default BGCanvas;
 
 
-function Animator(props) {
+function Animator() {
 
-	useFrame(({camera})=>{
+	useFrame(({camera, clock})=>{
 		camera.position.z += 0.002;
-		// props.setZ(props.z + 0.01);
-		// console.log(props.z);
+		// console.log(clock.getDelta());
+
+		// console.log(clock.oldTime, performance.now(), performance.now()-clock.oldTime)
+		// if (camera.position.z >= 0) console.log(performance.now() - clock.startTime)
+
+		// console.log(clock.getElapsedTime(), clock);
+		// if (clock.getElapsedTime() > 0.25) {
+		// 	console.log("RESET ", clock.getDelta());
+		// }
+
+		// let stopmakingafuckingerror = {
+		// 	"autoStart": true,
+		// 	"startTime": 1174.7000000011176,
+		// 	"oldTime": 11325.800000000745,
+		// 	"elapsedTime": 10.151099999999618,
+		// 	"running": true
+		// }
 	})
 }
 
+function CameraMove() {
 
-// let scene, camera, renderer, cube;
+	useFrame(({camera, clock})=>{
+		camera.position.z += 0.002;
+	})
 
+}
 
-// function init () {
+function DelayedSpinningBox() {
 
-// 	scene = new THREE.Scene();
+	let spin = false;
+
+	const meshRef = useRef();
+	const mesh = (
+		<mesh ref={meshRef} position={[0,0,0]} onClick={(e) => console.log('click')}>
+			<boxGeometry />
+			<meshStandardMaterial />
+		</mesh>
+	)
+
+	useFrame(({clock}) => {
+		if ((performance.now() - clock.startTime) > 10000) {
+			spin=true;
+		}
+		if (spin) {
+			meshRef.current.rotation.x += 0.01;
+		}
+	})
+
+	return mesh;
 	
-// 	// angle, aspect ratio, near clip plane, far clip plane
-// 	camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-	
-// 	renderer = new THREE.WebGLRenderer({ antialias: true});
-	
-// 	renderer.setSize(window.innerWidth, window.innerHeight);
-	
-// 	document.body.appendChild(renderer.domElement);
-	
-// 	const geometry = new THREE.BoxGeometry(1,1,1,1);
-// 	const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
-
-// 	// create a texture, commented out because I don't have these textures
-// 	// can be gotten from Traversy's github for this project
-// 	// const texture = new THREE.TextureLoader().load('textures/crate.gif') ;
-// 	// const material = new THREE.MeshBasicMaterial( {map: texture} );
-
-// 	cube = new THREE.Mesh( geometry, material );
-// 	scene.add(cube);
-	
-// 	camera.position.z = 5;
-// }
-
-// function animate() {
-// 	requestAnimationFrame(animate);
-
-// 	cube.rotation.x += 0.01;
-// 	cube.rotation.y += 0.01;
-
-// 	renderer.render(scene, camera);
-// }
+}
 
 
-// function onWindowResize() {
-// 	camera.aspect = window.innerWidth / window.innerHeight;
-// 	camera.updateProjectionMatrix();
-// 	renderer.setSize(window.innerWidth, window.innerHeight);
-// }
 
-// window.addEventListener('resize', onWindowResize, false);
-
-// init();
-// animate();
