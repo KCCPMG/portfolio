@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { useThree, useFrame } from '@react-three/fiber';
+import { Vector3 } from 'three';
 import { OrbitControls } from '@react-three/drei'
 import randomInt from '../helpers/randomInt';
 
@@ -109,7 +110,14 @@ function NextSphere({lastPosition, remaining}) {
     lastPosition.y + 10, 
     lastPosition.z + randomInt(-2,2)
   ]
-  
+
+  const destination = new Vector3(...destinationCoords);
+  const distance = lastPosition.distanceTo(destination);
+  const direction = lastPosition.clone().sub(destination);
+
+  console.log(distance, destination, direction);
+
+
 
   useFrame(() => {
     if (!safeForChild) {
@@ -121,6 +129,7 @@ function NextSphere({lastPosition, remaining}) {
     if (cylinderRef.current.scale.y < 10) {
       cylinderRef.current.scale.y += 0.01;
       cylinderRef.current.position.y +=0.005;
+      // cylinderRef.current.position.
     }
 
   })
@@ -137,7 +146,7 @@ function NextSphere({lastPosition, remaining}) {
       </mesh>
       <mesh 
         ref={sphereRef} 
-        position={destinationCoords}
+        position={destination}
       >
         <sphereGeometry />
         <meshStandardMaterial />
