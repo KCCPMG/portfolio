@@ -1,11 +1,7 @@
 import {useState, useEffect, useRef} from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
+import randomInt from '../helpers/randomInt';
 
-function randInt(min, max) {
-  if (max===min) return min;
-  else if (max<min) throw new Error("Max must be greater than min");
-  else return Math.floor((Math.random() * (max-min+1)) + min);
-}
 
 
 function Box() {
@@ -21,17 +17,14 @@ function Box() {
     y = camera.position.y;
     z = camera.position.z + 3;
     
-    x = randInt(x-2, x+2), 
-    y = randInt(y-2, y+2), 
-    z = randInt(z+5, z+10);
+    x = randomInt(x-2, x+2), 
+    y = randomInt(y-2, y+2), 
+    z = randomInt(z+5, z+10);
 
     console.log(x,y,z,createTime);
   })
 
   // box spin after 1 second
-  //
-  //
-  //
   useFrame(() => {
     if ((performance.now() - createTime.current) > 1000) {
       box.current.rotation.x += 0.01;
@@ -43,7 +36,6 @@ function Box() {
     <mesh 
       ref={box} 
       position={[x,y,z]}
-      onClick={(e) => getRef(ref)}
     >
       <boxGeometry />
       <meshStandardMaterial />
@@ -107,10 +99,10 @@ function BoxGenerator() {
     let camY = cameraRef.current.position.y;
     let camZ = cameraRef.current.position.z;
 
-    x = randInt(camX-2, camX+2), 
-    y = randInt(camY-2, camY+2), 
+    x = randomInt(camX-2, camX+2), 
+    y = randomInt(camY-2, camY+2), 
     console.log(camZ+5, camZ+10)
-    z = randInt(camZ+5, camZ+10);
+    z = randomInt(camZ+5, camZ+10);
     return {x,y,z}
   }
 

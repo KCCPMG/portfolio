@@ -3,6 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useState, useRef, useEffect } from 'react';
 
 import BoxGenerator from './BoxGenerator';
+import ConnectedSpheres from './ConnectedSpheres';
 
 
 function BGCanvas() {
@@ -12,12 +13,13 @@ function BGCanvas() {
 	return (
 		<div id="canvas-container" style={{ width: "100vw", height: "100vh", backgroundColor: "black" }}>
 			<Canvas 
-				camera={{ fov: 70, position: [0,0,-5] }}
+				camera={{ fov: 70, position: [0,0,-35] }}
 			>
-				<ambientLight intensity={1.9} />
-				<CameraMove />
+				<ambientLight intensity={1.0} />
+				{/* <CameraMove /> */}
 				{/* <DelayedSpinningBox /> */}
-				<BoxGenerator />
+				{/* <BoxGenerator /> */}
+				<ConnectedSpheres />
 			</Canvas>
 		</div>
 	)
