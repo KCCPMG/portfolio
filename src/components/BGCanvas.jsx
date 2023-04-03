@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom'
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useState, useRef, useEffect } from 'react';
+import { OrbitControls } from '@react-three/drei'
 import { Vector3 } from 'three';
 
 import BoxGenerator from './BoxGenerator';
@@ -20,7 +21,8 @@ function BGCanvas() {
 				}}
 			>
 				<ambientLight intensity={1.0} />
-				{/* <CameraMove /> */}
+				<CameraMove />
+				<OrbitControls />
 				{/* <DelayedSpinningBox /> */}
 				{/* <BoxGenerator /> */}
 				<ConnectedSpheres />
@@ -36,7 +38,7 @@ export default BGCanvas;
 
 function CameraMove() {
 
-	useFrame(({camera, clock})=>{
+	useFrame(({camera})=>{
 		camera.position.z += 0.02;
 	})
 
