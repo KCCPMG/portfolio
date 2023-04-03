@@ -114,7 +114,16 @@ function NextSphere({lastPosition, remaining, drawTime=3000}) {
   const direction = destination.clone().sub(lastPosition.clone());
   const startTime = performance.now();
 
-  console.log({lastPosition, distance, destination, direction});
+  
+
+  
+
+  console.log({cylinderRef, lastPosition, distance, destination, direction});
+  
+
+  useThree(() => {
+    console.log(cylinderRef.current);
+  })
 
   // render child safely
   useFrame(() => {
@@ -140,27 +149,17 @@ function NextSphere({lastPosition, remaining, drawTime=3000}) {
     )
 
     if (currentScalar < 1) {
-      console.log({lastPosition, currentScalar, direction, destination, newMidpoint})
+      // console.log({lastPosition, currentScalar, direction, destination, newMidpoint})
     }
 
     // set position
     cylinderRef.current.position.copy(newMidpoint);
 
-    /** 
-    if (cylinderRef.current.scale.y < 10) {
-      // cylinderRef.current.scale.y += 0.01;
-      // cylinderRef.current.position.y +=0.005;
-      cylinderRef.current.position.copy(
-        lastPosition
-        .clone()
-        .add(
-          direction
-          .clone()
-          .multiplyScalar(0.5)
-        )
-      )
-    }
-    */
+    // set orientation
+    cylinderRef.current.quaternion.setFromUnitVectors(
+      new Vector3(0,1,0), direction.clone().normalize()
+    );
+
   })
 
   return (
