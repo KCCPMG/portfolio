@@ -65,7 +65,7 @@ function ConnectedSpheres() {
       <mesh 
         ref={sphere1} 
         position={[0,-5,5]}
-        >
+      >
         <sphereGeometry />
         <meshStandardMaterial />
       </mesh>
@@ -88,50 +88,79 @@ function ConnectedSpheres() {
         lastPosition={sphere2.current.position} 
         remaining={3} 
       />}
-      
-
-
     </group>
   )
 }
 
 
-function NextSphere({lastPosition, remaining}) {
+function NextSphere({lastPosition, remaining, drawTime=3000}) {
 
+  // state
   const [safeForChild, setSafeForChild] = useState(false);
+  
+  // refs
   const cylinderRef = useRef();
   const sphereRef = useRef();
   const groupRef = useRef();
 
-  // console.log("New Sphere, lastPosition:", lastPosition);
-
+  // constants
   const destinationCoords = [
     lastPosition.x + randomInt(-2,2), 
     lastPosition.y + 10, 
     lastPosition.z + randomInt(-2,2)
   ]
-
   const destination = new Vector3(...destinationCoords);
   const distance = lastPosition.distanceTo(destination);
-  const direction = lastPosition.clone().sub(destination);
+  const direction = destination.clone().sub(lastPosition.clone());
+  const startTime = performance.now();
 
-  console.log(distance, destination, direction);
+  console.log({lastPosition, distance, destination, direction});
 
-
-
+  // render child safely
   useFrame(() => {
     if (!safeForChild) {
       if (sphereRef?.current?.position) {
         setSafeForChild(true);
       }
     }
+  });
 
-    if (cylinderRef.current.scale.y < 10) {
-      cylinderRef.current.scale.y += 0.01;
-      cylinderRef.current.position.y +=0.005;
-      // cylinderRef.current.position.
+  // set position and scale of column
+  useFrame(() => {
+
+    const timeElapsed = performance.now() - startTime;
+    let currentScalar = Math.min(1, (timeElapsed / drawTime))
+
+    // set scale
+    cylinderRef.current.scale.y = distance * currentScalar;
+
+
+    const newMidpoint = lastPosition.clone().add(
+      direction.clone().multiplyScalar(0.5 * currentScalar)
+    )
+
+    if (currentScalar < 1) {
+      console.log({lastPosition, currentScalar, direction, destination, newMidpoint})
     }
 
+    // set position
+    cylinderRef.current.position.copy(newMidpoint);
+
+    /** 
+    if (cylinderRef.current.scale.y < 10) {
+      // cylinderRef.current.scale.y += 0.01;
+      // cylinderRef.current.position.y +=0.005;
+      cylinderRef.current.position.copy(
+        lastPosition
+        .clone()
+        .add(
+          direction
+          .clone()
+          .multiplyScalar(0.5)
+        )
+      )
+    }
+    */
   })
 
   return (

@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom'
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useState, useRef, useEffect } from 'react';
+import { Vector3 } from 'three';
 
 import BoxGenerator from './BoxGenerator';
 import ConnectedSpheres from './ConnectedSpheres';
@@ -13,7 +14,10 @@ function BGCanvas() {
 	return (
 		<div id="canvas-container" style={{ width: "100vw", height: "100vh", backgroundColor: "black" }}>
 			<Canvas 
-				camera={{ fov: 70, position: [0,0,-35] }}
+				camera={{ 
+					fov: 70, 
+					position: [0,40,-35]
+				}}
 			>
 				<ambientLight intensity={1.0} />
 				{/* <CameraMove /> */}
