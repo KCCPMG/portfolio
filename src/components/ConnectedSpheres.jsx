@@ -4,6 +4,19 @@ import { Vector3 } from 'three';
 import randomInt from '../helpers/randomInt';
 
 
+function ChainMaterial() {
+  return (
+    <meshPhysicalMaterial 
+      reflectivity={1.0}
+      // metalness={1.0}
+      clearcoat={1.0}
+      clearcoatRoughness={0.5}
+
+    />
+  )
+}
+
+
 function ConnectedSpheres({
   realizedHSL=[0.5, 1, 0.5],
   startingZ=5
@@ -11,6 +24,7 @@ function ConnectedSpheres({
 
   // state to wait for sphere to load before passing position to child
   const [safeForChild, setSafeForChild] = useState(false);
+  const [z, setZ] = useState();
 
   // sphere ref to access position to pass to children
   const group = useRef();
@@ -34,12 +48,12 @@ function ConnectedSpheres({
         position={[randomInt(-3,3),randomInt(-3,3), startingZ]}
       >
         <sphereGeometry />
-        <meshStandardMaterial />
+        <ChainMaterial />
       </mesh>
       {sphere?.current?.position && 
         <NextSphere 
           lastPosition={sphere.current.position} 
-          remaining={3}
+          remaining={10}
           drawTime={500} 
           realizedHSL={realizedHSL}
         />
@@ -75,9 +89,8 @@ function NextSphere({
   const distance = lastPosition.distanceTo(destination);
   const direction = destination.clone().sub(lastPosition.clone());
   const startTime = performance.now() + (sequenceIndex * drawTime);
-  // const beginDrawing = ;
 
-
+  
   // render child safely
   useFrame(() => {
     if (!safeForChild) {
@@ -128,14 +141,14 @@ function NextSphere({
         scale={[0.5,0.1,0.5]}
       >
         <cylinderGeometry />
-        <meshStandardMaterial />
+        <ChainMaterial />
       </mesh>
       <mesh 
         ref={sphereRef} 
         position={destination}
       >
         <sphereGeometry />
-        <meshStandardMaterial />
+        <ChainMaterial />
       </mesh>
       {((remaining > 0) && sphereRef?.current?.position) && 
         <NextSphere 

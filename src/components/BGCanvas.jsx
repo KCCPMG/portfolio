@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom'
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useState, useRef, useEffect } from 'react';
 import { OrbitControls } from '@react-three/drei'
 import { Vector3 } from 'three';
@@ -10,8 +10,15 @@ import ConnectedSpheres from './ConnectedSpheres';
 
 function BGCanvas() {
 
-	const [chains, setChains] = useState([<ConnectedSpheres/>]);
+	const [chains, setChains] = useState([
+		<ConnectedSpheres
+			realizedHSL={[0.556,0.72,0.47]}
+		/>
+	]);
 	
+
+
+
   // const cameraZ = useRef(0);
 
 	// useFrame((camera) => {
@@ -26,9 +33,16 @@ function BGCanvas() {
 					position: [0,0,-35]
 				}}
 			>
-				{/* <ambientLight intensity={0.4} /> */}
-				{/* <hemisphereLight intensity={0.25} position={[0, 100, 0]} /> */}
-				<pointLight />
+				<ambientLight intensity={0.7} />
+				{/* <hemisphereLight 
+					skyColor={0xEEFFFF}
+					groundColor={0x000000}
+					intensity={0.25} 
+					position={[0, 100, 0]} 
+				/> */}
+				<pointLight 
+					position={[200,200,0]}
+				/>
 				<CameraMove />
 				{/* <OrbitControls /> */}
 				{/* <DelayedSpinningBox /> */}
