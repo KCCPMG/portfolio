@@ -4,17 +4,23 @@ import { Vector3 } from 'three';
 import randomInt from '../helpers/randomInt';
 
 
-function ConnectedSpheres() {
+function ConnectedSpheres({
+  realizedHSL=[0.5, 1, 0.5],
+  startingZ=5
+}) {
 
   // state to wait for sphere to load before passing position to child
   const [safeForChild, setSafeForChild] = useState(false);
 
   // sphere ref to access position to pass to children
+  const group = useRef();
   const sphere = useRef();
 
   useFrame(()=>{
     if (!safeForChild) {
       if (sphere?.current?.position) {
+        group.current.rotation.x = Math.PI/2;
+        sphere.current.material.color.setHSL(...realizedHSL)
         setSafeForChild(true);
       }
     }
@@ -22,10 +28,10 @@ function ConnectedSpheres() {
 
   // render
   return(
-    <group>
+    <group ref={group}>
       <mesh 
         ref={sphere} 
-        position={[0,-5,5]}
+        position={[randomInt(-3,3),randomInt(-3,3), startingZ]}
       >
         <sphereGeometry />
         <meshStandardMaterial />
@@ -35,6 +41,7 @@ function ConnectedSpheres() {
           lastPosition={sphere.current.position} 
           remaining={3}
           drawTime={500} 
+          realizedHSL={realizedHSL}
         />
       }
     </group>

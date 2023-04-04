@@ -9,23 +9,32 @@ import ConnectedSpheres from './ConnectedSpheres';
 
 
 function BGCanvas() {
+
+	const [chains, setChains] = useState([<ConnectedSpheres/>]);
 	
-  // const [z, setZ] = useState(-2);
+  // const cameraZ = useRef(0);
+
+	// useFrame((camera) => {
+		// cameraZ.current = camera.position.z
+	// })
 
 	return (
 		<div id="canvas-container" style={{ width: "100vw", height: "100vh", backgroundColor: "black" }}>
 			<Canvas 
 				camera={{ 
 					fov: 70, 
-					position: [0,40,-35]
+					position: [0,0,-35]
 				}}
 			>
-				<ambientLight intensity={1.0} />
+				{/* <ambientLight intensity={0.4} /> */}
+				{/* <hemisphereLight intensity={0.25} position={[0, 100, 0]} /> */}
+				<pointLight />
 				<CameraMove />
-				<OrbitControls />
+				{/* <OrbitControls /> */}
 				{/* <DelayedSpinningBox /> */}
 				{/* <BoxGenerator /> */}
-				<ConnectedSpheres />
+				{/* <ConnectedSpheres/> */}
+				{chains}
 			</Canvas>
 		</div>
 	)
@@ -39,35 +48,11 @@ export default BGCanvas;
 function CameraMove() {
 
 	useFrame(({camera})=>{
-		camera.position.z += 0.02;
+		camera.position.z += 0.3;
 	})
 
 }
 
-function DelayedSpinningBox() {
-
-	let spin = false;
-
-	const meshRef = useRef();
-	const mesh = (
-		<mesh ref={meshRef} position={[0,0,0]} onClick={(e) => console.log('click')}>
-			<boxGeometry />
-			<meshStandardMaterial />
-		</mesh>
-	)
-
-	useFrame(({clock}) => {
-		if ((performance.now() - clock.startTime) > 10000) {
-			spin=true;
-		}
-		if (spin) {
-			meshRef.current.rotation.x += 0.01;
-		}
-	})
-
-	return mesh;
-	
-}
 
 
 
