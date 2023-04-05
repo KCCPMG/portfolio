@@ -8,15 +8,35 @@ import BoxGenerator from './BoxGenerator';
 import ConnectedSpheres from './ConnectedSpheres';
 
 
+const keyGenerator = function*(){
+	let i=0;
+	while (true) yield i++;
+}();
+
+
 function BGCanvas() {
+
+
+	
 
 	const [chains, setChains] = useState([
 		<ConnectedSpheres
-			realizedHSL={[0.556,0.72,0.47]}
-		/>
+				realizedHSL={[0.556,0.72,0.47]}
+				key={keyGenerator.next().value}
+			/>
 	]);
-	
 
+
+	setInterval(() => {
+		setChains([...chains,
+			<ConnectedSpheres
+				realizedHSL={[0.556,0.72,0.47]}
+				key={keyGenerator.next().value}
+			/>
+		])
+	}, 5000)
+	
+	
 
 
   // const cameraZ = useRef(0);
