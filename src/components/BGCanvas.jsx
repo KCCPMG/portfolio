@@ -17,45 +17,6 @@ const keyGenerator = function*(){
 
 function BGCanvas() {
 
-	// const [chains, setChains] = useState([
-	// 	<ConnectedSpheres
-	// 		realizedHSL={[0.556,0.72,0.47]}
-	// 		key={0}
-	// 	/>
-	// ]);
-
-	
-
-/** 
-	setTimeout(() => {
-		// console.log(performance.now(), chains.length)
-		setChains([...chains.slice(1),
-			<ConnectedSpheres
-				realizedHSL={[0.556,0.72,0.47]}
-				key={keyGenerator.next().value}
-			/>
-		]),
-		setTimeout(() => {
-			// console.log(performance.now(), chains.length)
-			setChains([...chains,
-				<ConnectedSpheres
-					realizedHSL={[0.556,0.72,0.47]}
-					key={keyGenerator.next().value}
-				/>
-			])
-			setChains([...chains.slice(1)])
-		}, 1500)
-	}, 5000)
-*/	
-	
-
-
-  // const cameraZ = useRef(0);
-
-	// useFrame((camera) => {
-		// cameraZ.current = camera.position.z
-	// })
-
 	return (
 		<div id="canvas-container" style={{ width: "100vw", height: "100vh", backgroundColor: "black" }}>
 			<Canvas 

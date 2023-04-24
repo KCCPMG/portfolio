@@ -6,7 +6,6 @@ import { Vector3 } from 'three';
 
 import randomInt from '../helpers/randomInt';
 import CameraMove from './CameraMove';
-import BoxGenerator from './BoxGenerator';
 import ConnectedSpheres from './ConnectedSpheres';
 
 
@@ -14,10 +13,6 @@ const keyGenerator = function*(){
 	let i=1;
 	while (true) yield i++;
 }();
-
-
-// const chainOneLast = {current: (performance.now())};
-// const chainTwoLast = {current: (performance.now() + 1500)};
 
 
 function Scene() {
@@ -57,34 +52,6 @@ function Scene() {
   }, [chains])
 
 
-  // const chainOneLast = useRef(performance.now());
-	// const chainTwoLast = useRef(performance.now() + 1500);
-
-  // const cycleChains = (() => {
-  //   setChains([...chains.slice(1), 
-  //     <ConnectedSpheres 
-  //       realizedHSL={[0.556,0.72,0.47]}
-  //       key={keyGenerator.next().value}
-  //       destroyChain={destroyChain}
-  //     />
-  //   ])
-  // })
-
-  
-
-	useFrame(() => {
-    // console.log(chainOneLast);
-		// if ((performance.now() - chainOneLast.current) > 5000) {
-			// console.log("5 seconds on one");
-			// chainOneLast.current = performance.now();
-      // cycleChains();
-		// }
-    // if ((performance.now() - chainTwoLast.current) > 5000) {
-			// console.log("5 seconds on two");
-			// chainTwoLast.current = performance.now();
-      // cycleChains();
-		// }
-	})
 
   return (
     <>
@@ -106,7 +73,9 @@ function Scene() {
           realizedHSL={realizedHSL}
           key={chain}
           keyId={chain}
-          nodeCount={randomInt(minNodes, maxNodes)}
+          minNodes={minNodes}
+          maxNodes={maxNodes}
+          // nodeCount={randomInt(minNodes, maxNodes)}
           drawTime={500}
           destroySelf={destroyChain}
           addChain={addChain}

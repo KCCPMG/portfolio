@@ -12,7 +12,9 @@ function ConnectedSpheres({
   realizedHSL=[0.5, 1, 0.5],
   addChain,
   destroySelf,
-  nodeCount=11,
+  minNodes,
+  maxNodes,
+  // nodeCount=11,
   drawTime,
   keyId
   // startingZ=5
@@ -23,6 +25,9 @@ function ConnectedSpheres({
 
   // state to wait for sphere to load before passing position to child
   const [safeForRender, setSafeForRender] = useState(false);
+  const [nodeCount, setNodeCount] = useState(randomInt(minNodes, maxNodes))
+
+
   // const [z, setZ] = useState(-50);
   const z = useRef();
 
@@ -118,8 +123,6 @@ function ConnectedSpheres({
     </group>)
   )
 }
-
-
 
 
 export default ConnectedSpheres;
