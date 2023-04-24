@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom'
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback, memo} from 'react';
 import { OrbitControls } from '@react-three/drei'
 import { Vector3 } from 'three';
 
@@ -34,17 +34,18 @@ function Scene() {
       chainsCopy.shift();
     }
     console.log(chainsCopy.length);
-    setChains([chainsCopy, keyId])
+    setChains([...chainsCopy, keyId])
   })
 
   const destroyChain = useCallback((chainKey) => {
     // somehow key 1 is getting removed before we get here
+
     console.log("destroying ", chainKey);
     console.log(chains);
     let chainsCopy = [...chains];
     console.log(chainsCopy);
     console.log(chainsCopy.filter(key => key !== chainKey))
-    setChains(chainsCopy.filter(key => key !== chainKey));
+    // setChains(chainsCopy.filter(key => key !== chainKey));
   });
 
   useEffect(() => {
@@ -81,6 +82,7 @@ function Scene() {
           addChain={addChain}
         />
       ))}
+
     </>
   )
 }

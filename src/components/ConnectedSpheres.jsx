@@ -8,17 +8,19 @@ import NextSphere from './NextSphere';
 
 
 
-function ConnectedSpheres({
-  realizedHSL=[0.5, 1, 0.5],
-  addChain,
-  destroySelf,
-  minNodes,
-  maxNodes,
-  // nodeCount=11,
-  drawTime,
-  keyId
-  // startingZ=5
-}) {
+const ConnectedSpheres = function ConnectedSpheres(props) {
+
+  const {
+    realizedHSL=[0.5, 1, 0.5],
+    addChain,
+    destroySelf,
+    minNodes,
+    maxNodes,
+    // nodeCount=11,
+    drawTime,
+    keyId
+    // startingZ=5
+  } = props;
 
   console.log("ConnectedSphere render ", keyId)
   // console.log(nodeCount, drawTime, nodeCount * drawTime)
@@ -35,16 +37,33 @@ function ConnectedSpheres({
   const group = useRef();
   const sphere = useRef();
 
-  const color = new Color
+  const color = new Color;
   color.setHSL(...realizedHSL);
 
   const position = new Vector3;
   position.set(randomInt(-3,3), z.value, randomInt(-5,5))
 
+  const prevProps = useRef();
+  const didMountRef = useRef(false);
+  // catch changes to props
+  useEffect(() => {
+    if (didMountRef.current) {
+      console.log(`PROPS CHANGE ON ${keyId}`);
+      console.log({prevProps});
+      console.log({props})
+
+      prevProps.current = props;
+    } else {
+      didMountRef.current = true;
+      
+      prevProps.current = props;
+    }
+  }, [props])
+
 
   // setTimeout to add chain
   useEffect(() => {
-    console.log("Establishing set timeout")
+    // console.log("Establishing set timeout")
     const addTimeout = setTimeout(() => {
       console.log("Should add a chain from ", keyId)
       addChain();
@@ -55,15 +74,15 @@ function ConnectedSpheres({
   }, []);
 
   // setTimeout to destroy chain
-  useEffect(() => {
-    const destroyTimeout = setTimeout(() => {
-      console.log("Should delete chain ", keyId)
-      // destroySelf(keyId);
-    }, ((nodeCount * drawTime) + 4000))
+  // useEffect(() => {
+  //   const destroyTimeout = setTimeout(() => {
+  //     console.log("Should delete chain ", keyId)
+  //     // destroySelf(keyId);
+  //   }, ((nodeCount * drawTime) + 4000))
 
-    return () => clearTimeout(destroyTimeout);
+  //   return () => clearTimeout(destroyTimeout);
 
-  }, [])
+  // }, [])
 
   // useFrame(({camera})=>{
   //   if (!safeForChild) {
@@ -123,6 +142,5 @@ function ConnectedSpheres({
     </group>)
   )
 }
-
 
 export default ConnectedSpheres;
