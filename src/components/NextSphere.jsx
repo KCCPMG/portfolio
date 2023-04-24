@@ -43,7 +43,7 @@ function NextSphere({
   });
 
 
-  // set position and scale of column
+  // set position and scale of cylinder
   useFrame(() => {
 
     const timeElapsed = Math.max(0, performance.now() - startTime);
@@ -80,7 +80,7 @@ function NextSphere({
       <mesh 
         ref={cylinderRef} 
         position={[lastPosition.x, lastPosition.y, lastPosition.z]}
-        scale={[0.5,0.1,0.5]}
+        scale={[0.25,0.1,0.25]}
       >
         <cylinderGeometry />
         <ChainMaterial />

@@ -6,36 +6,47 @@ import { Vector3 } from 'three';
 
 import BoxGenerator from './BoxGenerator';
 import ConnectedSpheres from './ConnectedSpheres';
+import Scene from './Scene';
 
 
 const keyGenerator = function*(){
-	let i=0;
+	let i=1;
 	while (true) yield i++;
 }();
 
 
 function BGCanvas() {
 
+	// const [chains, setChains] = useState([
+	// 	<ConnectedSpheres
+	// 		realizedHSL={[0.556,0.72,0.47]}
+	// 		key={0}
+	// 	/>
+	// ]);
 
 	
 
-	const [chains, setChains] = useState([
-		<ConnectedSpheres
-				realizedHSL={[0.556,0.72,0.47]}
-				key={keyGenerator.next().value}
-			/>
-	]);
-
-
-	setInterval(() => {
-		setChains([...chains,
+/** 
+	setTimeout(() => {
+		// console.log(performance.now(), chains.length)
+		setChains([...chains.slice(1),
 			<ConnectedSpheres
 				realizedHSL={[0.556,0.72,0.47]}
 				key={keyGenerator.next().value}
 			/>
-		])
+		]),
+		setTimeout(() => {
+			// console.log(performance.now(), chains.length)
+			setChains([...chains,
+				<ConnectedSpheres
+					realizedHSL={[0.556,0.72,0.47]}
+					key={keyGenerator.next().value}
+				/>
+			])
+			setChains([...chains.slice(1)])
+		}, 1500)
 	}, 5000)
-	
+*/	
 	
 
 
@@ -53,22 +64,7 @@ function BGCanvas() {
 					position: [0,0,-35]
 				}}
 			>
-				<ambientLight intensity={0.7} />
-				{/* <hemisphereLight 
-					skyColor={0xEEFFFF}
-					groundColor={0x000000}
-					intensity={0.25} 
-					position={[0, 100, 0]} 
-				/> */}
-				<pointLight 
-					position={[200,200,0]}
-				/>
-				<CameraMove />
-				{/* <OrbitControls /> */}
-				{/* <DelayedSpinningBox /> */}
-				{/* <BoxGenerator /> */}
-				{/* <ConnectedSpheres/> */}
-				{chains}
+				<Scene />
 			</Canvas>
 		</div>
 	)
@@ -79,13 +75,7 @@ export default BGCanvas;
 
 
 
-function CameraMove() {
 
-	useFrame(({camera})=>{
-		camera.position.z += 0.3;
-	})
-
-}
 
 
 
