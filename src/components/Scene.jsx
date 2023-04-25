@@ -25,17 +25,41 @@ function Scene() {
 
   console.log(chains);
 
-  const addChain = useCallback(() => {
+  // const addChain = useCallback(() => {
+  //   let keyId = keyGenerator.next().value;
+  //   console.log("adding chain ", keyId);
+  //   let chainsCopy = [...chains];
+  //   console.log(chainsCopy);
+  //   // console.log(chainsCopy.length);
+  //   if (chainsCopy.length > 5) {
+  //     chainsCopy.shift();
+  //   }
+  //   // console.log(chainsCopy.length);
+  //   setChains([...chainsCopy, keyId])
+  // })
+
+
+  const addChain = () => {
     let keyId = keyGenerator.next().value;
     console.log("adding chain ", keyId);
     let chainsCopy = [...chains];
-    console.log(chainsCopy.length);
+    console.log(chainsCopy);
+    // console.log(chainsCopy.length);
     if (chainsCopy.length > 5) {
-      chainsCopy.shift();
+      // chainsCopy.shift();
+      chainsCopy.splice(chainsCopy.indexOf(Math.min(...chainsCopy)), 1, keyId);
+      setChains(chainsCopy);
+    } else {
+
+      setChains([...chainsCopy, keyId])
     }
-    console.log(chainsCopy.length);
-    setChains([...chainsCopy, keyId])
-  })
+    // console.log(chainsCopy.length);
+  }
+
+  useEffect(() => {
+    console.log("Adding timeout");
+    setTimeout(addChain, 5000);
+  }, [chains])
 
   const destroyChain = useCallback((chainKey) => {
     // somehow key 1 is getting removed before we get here
@@ -48,9 +72,6 @@ function Scene() {
     // setChains(chainsCopy.filter(key => key !== chainKey));
   });
 
-  useEffect(() => {
-    console.log(chains);
-  }, [chains])
 
 
 
@@ -71,15 +92,15 @@ function Scene() {
       {/* <ConnectedSpheres/> */}
       {chains.map(chain => (
         <ConnectedSpheres 
-          realizedHSL={realizedHSL}
+          // realizedHSL={realizedHSL}
           key={chain}
           keyId={chain}
           minNodes={minNodes}
           maxNodes={maxNodes}
           // nodeCount={randomInt(minNodes, maxNodes)}
           drawTime={500}
-          destroySelf={destroyChain}
-          addChain={addChain}
+          // destroySelf={destroyChain}
+          // addChain={addChain}
         />
       ))}
 

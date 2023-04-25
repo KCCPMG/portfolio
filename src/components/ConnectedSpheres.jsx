@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, memo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Color, Vector3 } from 'three';
 
@@ -8,7 +8,7 @@ import NextSphere from './NextSphere';
 
 
 
-const ConnectedSpheres = function ConnectedSpheres(props) {
+const ConnectedSpheres = memo(function ConnectedSpheres(props) {
 
   const {
     realizedHSL=[0.5, 1, 0.5],
@@ -22,7 +22,7 @@ const ConnectedSpheres = function ConnectedSpheres(props) {
     // startingZ=5
   } = props;
 
-  console.log("ConnectedSphere render ", keyId)
+  // console.log("ConnectedSphere render ", keyId)
   // console.log(nodeCount, drawTime, nodeCount * drawTime)
 
   // state to wait for sphere to load before passing position to child
@@ -49,7 +49,7 @@ const ConnectedSpheres = function ConnectedSpheres(props) {
   useEffect(() => {
     if (didMountRef.current) {
       console.log(`PROPS CHANGE ON ${keyId}`);
-      console.log({prevProps});
+      console.log({prevProps: prevProps.current});
       console.log({props})
 
       prevProps.current = props;
@@ -65,8 +65,8 @@ const ConnectedSpheres = function ConnectedSpheres(props) {
   useEffect(() => {
     // console.log("Establishing set timeout")
     const addTimeout = setTimeout(() => {
-      console.log("Should add a chain from ", keyId)
-      addChain();
+      // console.log("Should add a chain from ", keyId)
+      // addChain();
     }, ((nodeCount * drawTime) + 2000))
 
     return () => clearTimeout(addTimeout);
@@ -141,6 +141,6 @@ const ConnectedSpheres = function ConnectedSpheres(props) {
       {/* } */}
     </group>)
   )
-}
+})
 
 export default ConnectedSpheres;
