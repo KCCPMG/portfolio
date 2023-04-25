@@ -11,19 +11,15 @@ import NextSphere from './NextSphere';
 const ConnectedSpheres = memo(function ConnectedSpheres(props) {
 
   const {
-    realizedHSL=[0.5, 1, 0.5],
-    addChain,
-    destroySelf,
+    hue,
+    saturation,
+    lightness,
     minNodes,
     maxNodes,
-    // nodeCount=11,
     drawTime,
     keyId
-    // startingZ=5
   } = props;
 
-  // console.log("ConnectedSphere render ", keyId)
-  // console.log(nodeCount, drawTime, nodeCount * drawTime)
 
   // state to wait for sphere to load before passing position to child
   const [safeForRender, setSafeForRender] = useState(false);
@@ -37,6 +33,7 @@ const ConnectedSpheres = memo(function ConnectedSpheres(props) {
   const group = useRef();
   const sphere = useRef();
 
+  const realizedHSL = [hue, saturation, lightness]
   const color = new Color;
   color.setHSL(...realizedHSL);
 

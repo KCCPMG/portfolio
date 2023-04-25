@@ -19,7 +19,9 @@ function Scene() {
 
   const [chains, setChains] = useState([0])
   
-  const realizedHSL=[0.556,0.72,0.47];
+  const hue=0.556;
+  const saturation=0.72;
+  const lightness=0.47;
   const minNodes=4;
   const maxNodes=15;
 
@@ -92,15 +94,14 @@ function Scene() {
       {/* <ConnectedSpheres/> */}
       {chains.map(chain => (
         <ConnectedSpheres 
-          // realizedHSL={realizedHSL}
+          hue={hue}
+          saturation={saturation}
+          lightness={lightness}
           key={chain}
           keyId={chain}
           minNodes={minNodes}
           maxNodes={maxNodes}
-          // nodeCount={randomInt(minNodes, maxNodes)}
           drawTime={500}
-          // destroySelf={destroyChain}
-          // addChain={addChain}
         />
       ))}
 
