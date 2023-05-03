@@ -7,11 +7,11 @@ import KeyfinderImage from '../assets/keyfinder_large.jpeg'
 import XKCDImage from '../assets/xkcd_view_large.jpeg'
 
 const cardStyle = { 
-	position: 'relative',
-	// top: '20%',
+	position: 'absolute',
+	top: '20%',
 	// height: '60%',
-	// left: '15%',
-	// width: '70%',
+	left: '15%',
+	width: '70%',
 	// left: '35px',
 	maxWidth: '80%',
 	margin: 'auto', 
@@ -115,7 +115,7 @@ function Cover() {
   return (
     <Card style={cardStyle}>
 			<Card.Body>
-				<Card.Title>Connor Wales</Card.Title>
+				<Card.Title><h2>Connor Wales</h2></Card.Title>
 				<Card.Text>
 					<ButtonGroup>
 						{availableStories.map(story => 
@@ -151,7 +151,9 @@ function Cover() {
 							</Col>
 							<Col>
 								<p>{selectedStory.description}</p>
-
+								<ButtonGroup>
+									{selectedStory.map()}
+								</ButtonGroup>
 							</Col>
 						</Row>
 						
