@@ -1,10 +1,47 @@
 import { useState } from 'react';
 import { Card, Image, Button, ButtonGroup, ButtonToolbar, Container, Col, Row } from 'react-bootstrap';
 import AnchormanImage from '../assets/Anchorman_timer_large.jpeg';
-import D20Image from '../assets/d20_attack_comparison_large.jpeg'
-import DragonsImage from '../assets/Dragons_Hoard_large.jpeg'
-import KeyfinderImage from '../assets/keyfinder_large.jpeg'
-import XKCDImage from '../assets/xkcd_view_large.jpeg'
+import D20Image from '../assets/d20_attack_comparison_large.jpeg';
+import DragonsImage from '../assets/Dragons_Hoard_large.jpeg';
+import KeyfinderImage from '../assets/keyfinder_large.jpeg';
+import XKCDImage from '../assets/xkcd_view_large.jpeg';
+
+import ConnorImage from '../assets/linkedin-profile.jpeg';
+
+import ReactImage from '../assets/react.png';
+import BootstrapImage from '../assets/bootstrap-icon-png-2.png';
+import ChartJSImage from '../assets/chartJS.svg';
+import PostgreSQLImage from '../assets/PostgreSQL.png';
+import ExpressImage from '../assets/express-js-icon-20.png';
+import NodeJSImage from '../assets/nodeJS.png';
+import PythonImage from '../assets/python.webp';
+import FlaskImage from '../assets/flask.webp';
+import GithubImage from '../assets/Github.png';
+
+
+const REACT = 'react';
+const BOOTSTRAP = 'bootstrap';
+const CHARTJS = 'chartjs';
+const POSTGRESQL = 'postgresql';
+const EXPRESS = 'express';
+const NODEJS = 'nodejs';
+const PYTHON = 'python';
+const FLASK = 'flask';
+const GITHUB = 'github';
+
+
+const TECHNOLOGY_IMAGES = {
+	react: ReactImage,
+	bootstrap: BootstrapImage,
+	chartjs: ChartJSImage,
+	postgresql: PostgreSQLImage,
+	express: ExpressImage,
+	nodejs: NodeJSImage,
+	python: PythonImage,
+	flask: FlaskImage,
+	github: GithubImage
+} 
+
 
 const cardStyle = { 
 	position: 'absolute',
@@ -55,12 +92,22 @@ function Cover() {
 
 
   const availableStories = [
+		{
+      title: 'Connor Wales',
+			key: 'connor',
+      icon: '',
+      picture: ConnorImage,
+			technologies: [REACT, BOOTSTRAP],
+      deployLink: 'https://linkedin.com/in/connor-wales',
+      githubLink: 'https://github.com/KCCPMG',
+      description: 'Full Stack Developer. Always learning, always building.'
+    },
     {
       title: 'Keyfinder',
 			key: 'keyfinder',
       icon: '',
       picture: KeyfinderImage,
-			technologies: ['React', 'Bootstrap'],
+			technologies: [REACT, BOOTSTRAP],
       deployLink: 'https://kccpmg.github.io/keyfinder/',
       githubLink: 'https://github.com/KCCPMG/keyfinder',
       description: 'A one-page React app to help musicians keep track of compatibility between different notes, chords, and keys.'
@@ -70,7 +117,7 @@ function Cover() {
 			key: 'd20',
 			icon: '',
 			picture: D20Image,
-			technologies: ['React', 'Bootstrap', 'ChartJS'],
+			technologies: [REACT, BOOTSTRAP, CHARTJS],
 			deployLink: 'https://kccpmg.github.io/dnd-attack-comparison/',
 			githubLink: 'https://github.com/KCCPMG/dnd-attack-comparison',
 			description: 'A one-page React app taking Dungeons and Dragons attacks input by users and then graphing probabilities of hits and damage.'
@@ -80,7 +127,7 @@ function Cover() {
 			key: 'anchorman',
       icon: '',
       picture: AnchormanImage,
-			technologies: ['React'],
+			technologies: [REACT],
       deployLink: 'https://kccpmg.github.io/sex-panther-timer/',
       githubLink: 'https://github.com/KCCPMG/sex-panther-timer',
       description: 'A 60 second countdown timer for use with "Anchorman: The Board Game", featuring sound clips from the film.'
@@ -90,7 +137,7 @@ function Cover() {
 			key: 'xkcd',
       icon: '',
       picture: XKCDImage,
-			technologies: ['PostgreSQL', 'NodeJS', 'Express', 'ReactJS', 'Bootstrap'],
+			technologies: [POSTGRESQL, REACT, NODEJS, EXPRESS, BOOTSTRAP],
       deployLink: 'https://xkcd-view.surge.sh/',
       githubLink: 'https://github.com/KCCPMG/capstone-1-dnd-repository',
       description: 'A viewer for xkcd comics which allows users to upvote comics they like, see which comics are popular, and to save their own personal favorites. Note: Please give the backend a moment to load when visiting'
@@ -100,7 +147,7 @@ function Cover() {
 			key: 'dragon',
       icon: '',
       picture: DragonsImage,
-			technologies: ['PostgreSQL', 'Python', 'Flask'],
+			technologies: [POSTGRESQL, PYTHON, FLASK],
       deployLink: 'https://dnd-repo.herokuapp.com/',
       githubLink: 'https://github.com/KCCPMG/capstone-2-xkcd-viewer',
       description: 'A Content Creator and Repository for Dungeons and Dragons (5E), using Python, Flask, and PostgreSQL.'
@@ -116,51 +163,63 @@ function Cover() {
     <Card style={cardStyle}>
 			<Card.Body>
 				<Card.Title><h2>Connor Wales</h2></Card.Title>
-				<Card.Text>
-					<ButtonGroup>
-						{availableStories.map(story => 
-							<ButtonToolbar style={{width: '100%'}}>
-								<Button
-									rounded
-									key={story.key} 
-									onClick={() => setStory(story.key)}
-									style={thumbnailButtonStyle}
-									>
-									<Image 
-										thumbnail 
-										src={story.picture} 
-										title={story.title}
-										// style={buttonImgStyle} 
-									/>
-								</Button>
-							</ButtonToolbar>
-						)}
-					</ButtonGroup>
-				</Card.Text>
-				<Card.Text>
-					{selectedStory && 
-						<>
-						<h3>{selectedStory.title}</h3>
-						<Row >
-							<Col className="mh-100">
-								<Image 
-									src={selectedStory.picture} 
-									style={cardImageStyle}	
-									title={selectedStory.title}
-								/>
-							</Col>
-							<Col>
-								<p>{selectedStory.description}</p>
-								<ButtonGroup>
-									{selectedStory.map()}
-								</ButtonGroup>
-							</Col>
-						</Row>
-						
 
-						</>
-					}
-				</Card.Text>
+				<ButtonGroup>
+					{availableStories.map(story => 
+						<ButtonToolbar style={{width: '100%'}}>
+							<Button
+								rounded
+								key={story.key} 
+								onClick={() => setStory(story.key)}
+								style={thumbnailButtonStyle}
+							>
+								<Image 
+									thumbnail 
+									src={story.picture} 
+									title={story.title}
+								/>
+							</Button>
+						</ButtonToolbar>
+					)}
+				</ButtonGroup>
+				<hr/>
+
+				{selectedStory && 
+					<>
+					<h3>{selectedStory.title}</h3>
+					<Row >
+						<Col className="mh-100">
+							<Image 
+								src={selectedStory.picture} 
+								style={cardImageStyle}	
+								title={selectedStory.title}
+							/>
+						</Col>
+						<Col>
+							<p>{selectedStory.description}</p>
+							<ButtonGroup>
+								{selectedStory.technologies.map(t => 
+									<ButtonToolbar>
+										<Button
+											rounded
+											key={t}
+											style={thumbnailButtonStyle}
+										>
+											<Image 
+												thumbnail
+												src={TECHNOLOGY_IMAGES[t]} 
+											/>
+										</Button>	
+									</ButtonToolbar>
+								)}
+							</ButtonGroup>
+						</Col>
+					</Row>
+					
+
+					</>
+				}
+
 			</Card.Body>
     </Card>
   )
