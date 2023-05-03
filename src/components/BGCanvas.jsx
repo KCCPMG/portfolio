@@ -14,11 +14,19 @@ const keyGenerator = function*(){
 	while (true) yield i++;
 }();
 
+const canvasStyle = { 
+	position: 'absolute',
+	top: '0',
+	width: "100vw", 
+	height: "100vh", 
+	backgroundColor: "black" 
+}
+
 
 function BGCanvas() {
 
 	return (
-		<div id="canvas-container" style={{ width: "100vw", height: "100vh", backgroundColor: "black" }}>
+		<div id="canvas-container" style={canvasStyle}>
 			<Canvas 
 				camera={{ 
 					fov: 70, 

@@ -38,7 +38,11 @@ const ConnectedSpheres = memo(function ConnectedSpheres(props) {
   color.setHSL(...realizedHSL);
 
   const position = new Vector3;
-  position.set(randomInt(-3,3), z.value, randomInt(-5,5))
+  let radius = 7;
+  let startingX = randomInt(-radius,radius);
+  let positiveOrNegative = (keyId % 2 == 0 ? 1 : -1);
+  let startingZ = positiveOrNegative * Math.sqrt((radius ** 2) - (startingX ** 2));
+  position.set(startingX, z.value, startingZ)
 
   const prevProps = useRef();
   const didMountRef = useRef(false);

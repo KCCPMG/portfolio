@@ -44,10 +44,10 @@ const TECHNOLOGY_IMAGES = {
 
 
 const cardStyle = { 
-	position: 'absolute',
-	top: '20%',
-	// height: '60%',
-	left: '15%',
+	// position: 'absolute',
+	// top: '20%',
+	maxHeight: '90vh',
+	// left: '15%',
 	width: '70%',
 	// left: '35px',
 	maxWidth: '80%',
@@ -66,15 +66,16 @@ const thumbnailButtonStyle = {
 	// borderRadius: '30px'
 }
 
-
 const cardColStyle = {
-	maxWidth: '40%',
+	maxWidth: '30%',
+	maxHeight: '100%',
+	content: 'contain'
 }
 
 const cardImageStyle = {
 	maxHeight: '100%',
 	maxWidth: '100%',
-	height: 'auto'
+	// height: 'auto'
 }
 
 
@@ -97,7 +98,7 @@ function Cover() {
 			key: 'connor',
       icon: '',
       picture: ConnorImage,
-			technologies: [REACT, BOOTSTRAP],
+			technologies: [REACT, BOOTSTRAP, CHARTJS, POSTGRESQL, EXPRESS, NODEJS, PYTHON, FLASK, GITHUB],
       deployLink: 'https://linkedin.com/in/connor-wales',
       githubLink: 'https://github.com/KCCPMG',
       description: 'Full Stack Developer. Always learning, always building.'
@@ -161,9 +162,13 @@ function Cover() {
 
   return (
     <Card style={cardStyle}>
-			<Card.Body>
-				<Card.Title><h2>Connor Wales</h2></Card.Title>
-
+			<Card.Body 
+				// className="d-flex flex-container" 
+				style={{maxHeight: '70%'}}
+			>
+				<Row style={{width: '100%'}}>
+					<Card.Title><h2>Connor Wales</h2></Card.Title>
+				</Row>
 				<ButtonGroup>
 					{availableStories.map(story => 
 						<ButtonToolbar style={{width: '100%'}}>
@@ -187,36 +192,38 @@ function Cover() {
 				{selectedStory && 
 					<>
 					<h3>{selectedStory.title}</h3>
-					<Row >
-						<Col className="mh-100">
-							<Image 
-								src={selectedStory.picture} 
-								style={cardImageStyle}	
-								title={selectedStory.title}
-							/>
-						</Col>
-						<Col>
-							<p>{selectedStory.description}</p>
-							<ButtonGroup>
-								{selectedStory.technologies.map(t => 
-									<ButtonToolbar>
-										<Button
-											rounded
-											key={t}
-											style={thumbnailButtonStyle}
-										>
-											<Image 
-												thumbnail
-												src={TECHNOLOGY_IMAGES[t]} 
-											/>
-										</Button>	
-									</ButtonToolbar>
-								)}
-							</ButtonGroup>
-						</Col>
-					</Row>
-					
-
+					<Container className="d-flex">
+						
+						<Row className="flex-grow-1" style={{overflowY: 'auto'}}>
+							<Col className="mh-100" style={cardColStyle}>
+								<Image 
+									fluid
+									src={selectedStory.picture} 
+									style={cardImageStyle}	
+									title={selectedStory.title}
+								/>
+							</Col>
+							<Col>
+								<p>{selectedStory.description}</p>
+								<ButtonGroup>
+									{selectedStory.technologies.map(t => 
+										<ButtonToolbar>
+											<Button
+												rounded
+												key={t}
+												style={thumbnailButtonStyle}
+											>
+												<Image 
+													thumbnail
+													src={TECHNOLOGY_IMAGES[t]} 
+												/>
+											</Button>	
+										</ButtonToolbar>
+									)}
+								</ButtonGroup>
+							</Col>
+						</Row>
+					</Container>
 					</>
 				}
 
