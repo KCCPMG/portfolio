@@ -163,12 +163,17 @@ function Cover() {
   return (
     <Card style={cardStyle}>
 			<Card.Body 
-				// className="d-flex flex-container" 
-				style={{maxHeight: '70%'}}
+				className="d-flex flex-container flex-wrap" 
+				style={{overflow: 'auto', maxHeight: '85vh'}}
 			>
-				<Row style={{width: '100%'}}>
-					<Card.Title><h2>Connor Wales</h2></Card.Title>
+				<Row className="justify-content-md-center">
+					<Col xs={12}>Test</Col>
 				</Row>
+
+				<Row className="d-flex w-100">
+					<Card.Title><h2>Connor Wales</h2></Card.Title>	
+				</Row>
+
 				<ButtonGroup>
 					{availableStories.map(story => 
 						<ButtonToolbar style={{width: '100%'}}>
@@ -189,13 +194,14 @@ function Cover() {
 				</ButtonGroup>
 				<hr/>
 
-				{selectedStory && 
-					<>
-					<h3>{selectedStory.title}</h3>
-					<Container className="d-flex">
-						
-						<Row className="flex-grow-1" style={{overflowY: 'auto'}}>
-							<Col className="mh-100" style={cardColStyle}>
+				{selectedStory &&
+					<Container 
+						// className="d-flex flex-grow-1"
+						style={{overflowY: 'auto'}}
+					>
+						<h3>{selectedStory.title}</h3>
+						<Row className="flex-grow-1" >
+							<Col style={cardColStyle}>
 								<Image 
 									fluid
 									src={selectedStory.picture} 
@@ -224,7 +230,6 @@ function Cover() {
 							</Col>
 						</Row>
 					</Container>
-					</>
 				}
 
 			</Card.Body>
