@@ -1,6 +1,28 @@
+@font-face {
+  font-family: 'Alegreya SC';
+  src: url('./assets/fonts/AlegreyaSC-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('./assets/fonts/Oswald-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'SBT-Stripes';
+  src: url('./assets/fonts/Stahlbetontraeger-Stripes.ttf');
+  /* Stahlbetontraeger is a modified  Fonts by "www.nils-von-Blanc.de" 2008. */
+}
+
+
+
+
 .App {
   width: 100vw;
   height: 100vh;
+  /* font-family: 'Alegreya SC'; */
+  font-family: 'Oswald', sans-serif;
+  /* font-family: 'SBT-Stripes'; */
 }
 
 #cover {
@@ -18,4 +40,42 @@
   justify-content: center;
 
   background-color: rgba(0,0,0,0);
+}
+
+
+#content-container {
+  max-width: 85vw;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+
+@keyframes navLinkHover {
+  0% {
+    /* font-size:12px */
+    text-decoration: underline;
+    text-decoration-thickness: 0px;
+  }
+  
+  100% {
+    font-weight: 1000;
+    text-decoration: underline;
+    text-decoration-thickness: 10px;
+  }
+}
+
+.nav-link {
+  /* text-decoration: none; */
+
+
+  /* font-size: 12px; */
+
+}
+
+
+.nav-link:hover {
+  /* text-decoration: underline; */
+  animation-name: navLinkHover;
+  animation-duration: 2s;
+  
 }
