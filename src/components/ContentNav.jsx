@@ -5,9 +5,15 @@ function ContentNav({setDisplayedSection}) {
   return (
     <Navbar bg="light">
       <Nav>
-        <Nav.Link onClick={() => {setDisplayedSection()}}>Me</Nav.Link>
-        <Nav.Link>Projects</Nav.Link>
-        <Nav.Link>Hide</Nav.Link>
+        <Nav.Link onClick={() => {setDisplayedSection()}}>
+          <span>Me</span><hr />
+        </Nav.Link>
+        <Nav.Link>
+          <span>Projects</span><hr />  
+        </Nav.Link>
+        <Nav.Link>
+          <span>Hide</span><hr />
+        </Nav.Link>
       </Nav>
     </Navbar>
   )
