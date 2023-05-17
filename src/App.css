@@ -64,17 +64,38 @@
 }
 
 #content-container {
+  background-color: gray;
   max-width: 85vw;
   max-height: 85vh;
   overflow-y: auto;
 }
 
+@keyframes hideAnimation {
+  0% {
+    overflow: hidden;
+    position: absolute;
+    top: 0vw;
+    left: 0vw;
+  } 
+
+  90% {
+    bottom: 3vw;
+    right: 3vw;
+    height: 1vw;
+  }
+
+  100% {
+    height: auto;
+  }
+}
+
 #content.hide > #content-container {
   overflow: hidden;
-  background-color: gray;
   position: absolute;
   bottom: 3vw;
   right: 3vw;
+  animation-name: hideAnimation;
+  animation-duration: 2s;
 }
 
 #portrait-icon {
