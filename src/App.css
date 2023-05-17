@@ -57,6 +57,11 @@
   background-color: rgba(0,0,0,0);
 }
 
+#content.hide > #content-container {
+  max-width: 10vw;
+  max-height: 10vw;
+  /* overflow: hidden; */
+}
 
 #content-container {
   max-width: 85vw;
@@ -64,6 +69,30 @@
   overflow-y: auto;
 }
 
+#content.hide > #content-container {
+  overflow: hidden;
+  background-color: gray;
+  position: absolute;
+  bottom: 3vw;
+  right: 3vw;
+}
+
+#portrait-icon {
+  border-radius: 5vw;
+  overflow: hidden;
+}
+
+#portrait-icon > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+#portrait-icon:hover {
+  border-width: 5px;
+  cursor: pointer;
+}
 
 @keyframes navLinkHover {
   0% {

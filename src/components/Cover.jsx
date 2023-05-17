@@ -6,7 +6,7 @@ import DragonsImage from '../assets/Dragons_Hoard_large.jpeg';
 import KeyfinderImage from '../assets/keyfinder_large.jpeg';
 import XKCDImage from '../assets/xkcd_view_large.jpeg';
 
-import ConnorImage from '../assets/linkedin-profile.jpeg';
+import ConnorImage from '../assets/portrait.jpeg';
 
 import ReactImage from '../assets/react.png';
 import BootstrapImage from '../assets/bootstrap-icon-png-2.png';
