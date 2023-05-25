@@ -1,5 +1,7 @@
 import { Navbar, Nav } from 'react-bootstrap';
 
+import './ContentNav.css';
+
 function ContentNav({setDisplayedSection, hide}) {
 
   return (

@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import BGCanvas from './components/BGCanvas';
 import Cover from './components/Cover';
-import Content from './components/Content';
+import Content from './components/Content/Content';
 
 
 function App() {
