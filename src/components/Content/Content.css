@@ -1,6 +1,6 @@
 
 @keyframes displayContent {
-  0% {
+  /* 0% {
     height: 85vh;
     width: 85vw;
   }
@@ -13,12 +13,28 @@
   100% {
     height: 100vh;
     width: 100vw;
+  } */
+
+  0% {
+    height: 0px;
+    width: 0px;
   }
+  
+  20% {
+    height: 100px;
+    width: 100px;
+  }
+
+  100% {
+    height: 100vh;
+    width: 100vw;
+  }
+
 }
 
 #content .display > #content-container {
   animation-name: displayContent;
-  animation-duration: 2s;
+  animation-duration: 4s;
 }
 
 #content {
@@ -52,9 +68,18 @@
     left: 0vw; */
   } 
 
-  20% {
-    width: 5vw;
-    height: 5vw;
+  40% {
+    transform: translateX(-500px);
+    /* transform: translateY(-50%); */
+    transform: scale(1,1);
+  }
+
+
+  50% {
+    /* width: 5vw;
+    height: 5vw; */
+    /* transform: scale(1, 0.07); */
+
   }
 
 
@@ -64,6 +89,9 @@
     /* position: absolute; */
     /* bottom: 3vw;
     right: 3vw; */
+    /* width: 5vw;
+    height: 5vw; */
+    transform: scale(0.07, 0.07);
   }
 }
 
@@ -71,9 +99,14 @@
 #content.hide > #content-container {
   overflow: hidden;
 
+
+
   animation-name: contentContainerHide;
-  animation-duration: 10s;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  
 }
+
 
 #content.hide > #content-container > #menu {
   /* animation-name: menuHide;
