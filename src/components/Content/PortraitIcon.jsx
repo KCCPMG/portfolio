@@ -2,9 +2,9 @@ import Portrait from '../../assets/portrait.jpeg';
 
 import './PortraitIcon.css';
 
-function PortraitIcon({show}) {
+function PortraitIcon({show, id}) {
   return (
-    <div id="portrait-icon" onClick={show}>
+    <div id={id} onClick={show}>
       <img src={Portrait} />
     </div>
   )

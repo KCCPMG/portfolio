@@ -8,6 +8,7 @@ import './Content.css';
 
 function Content() {
 
+  const [animate, setAnimate] = useState(true);
   const [displayContent, setDisplayContent] = useState(true);
   const [displayedSection, setDisplayedSection] = useState(null);
   const [displayedProject, setDisplayedProject] = useState(null)
@@ -15,22 +16,26 @@ function Content() {
 
   const hide = () => {
     setDisplayContent(false);
+    setAnimate(true);
   }
 
   const show = () => {
     setDisplayContent(true);
+    setAnimate(true);
   }
 
-  const contentClass = displayContent ? 
-    'display' 
-    : 
-    'hide';
+  const contentClass = 
+    (displayContent ? 'display' : 'hide') + 
+    (animate ? ' animate' : '');
 
   return (
-    <div id="content" className={contentClass}>
+    <div id="content" className={contentClass} onAnimationIteration={() =>{
+      setAnimate(false);
+    }}>
       <Container id="content-container">
         <div id="menu">
           <ContentNav 
+            id="content-nav"
             setDisplayedSection={setDisplayedSection}
             hide={hide}
           />
@@ -45,7 +50,7 @@ function Content() {
           </h1>
         </div>
 
-        <PortraitIcon show={show} />
+        <PortraitIcon id="portrait-icon" show={show} />
         
         
       </Container>

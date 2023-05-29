@@ -2,10 +2,10 @@ import { Navbar, Nav } from 'react-bootstrap';
 
 import './ContentNav.css';
 
-function ContentNav({setDisplayedSection, hide}) {
+function ContentNav({setDisplayedSection, hide, id}) {
 
   return (
-    <Navbar bg="light">
+    <Navbar id={id} bg="light">
       <Nav>
         <Nav.Link onClick={() => {setDisplayedSection("Me")}}>
           <span>Me</span><hr />

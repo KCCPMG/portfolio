@@ -32,10 +32,6 @@
 
 }
 
-#content .display > #content-container {
-  animation-name: displayContent;
-  animation-duration: 4s;
-}
 
 #content {
   height: 100vh;
@@ -50,8 +46,8 @@
 
 #content-container {
   background-color: gray;
-  max-width: 85%;
-  max-height: 85%;
+  width: 85%;
+  height: 85%;
   overflow-y: auto;
   position: absolute;
   /* top: 50%;
@@ -129,38 +125,62 @@
     height: 100%;
     transform: translateY(0);
   }
-  25% {
+  33% {
     height: 7%;
-    opacity: 0;
-    transform: translateY(-35vh);
+    border-radius: 25%;
+    /* opacity: 0; */
+    transform: translateY(-15vh);
   }
-  50% {
+  67% {
     height: 7%;
     width: 7%;
-    opacity: 0;
-    transform: translateY(-40vh);
+    border-radius: 7%;
+    /* opacity: 0; */
+    /* transform: translateY(-40vh); */
   }
   100% {
     height: 7%;
     width: 7%;
-    opacity: 0;
+    border-radius: 25%;
+    /* opacity: 0; */
     transform: translate(40vw, 40vh);
 
   }
 }
 
 
-#content.hide > #content-container {
+.hide.animate > #content-container {
   overflow: hidden;
-
-
-
   animation-name: contentContainerHide;
-  animation-duration: 5s;
+  animation-duration: 3s;
+  animation-direction: forwards;
   animation-fill-mode: forwards;
   
 }
 
+.display.animate > #content-container {
+  animation-name: contentContainerHide;
+  animation-direction: reverse;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+#content.display > #content-container > #menu {
+  visibility: visible;
+}
+
+#content.display > #content-container > #portrait-icon {
+  visibility: hidden;
+}
+
+#content.hide > #content-container > #menu {
+  visibility: hidden;
+  height: 0;
+}
+
+#content.hide > #content-container > #portrait-icon {
+  visibility: visible;
+}
 
 /* #content.hide > #content-container > #menu { */
   /* animation-name: menuHide;

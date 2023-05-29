@@ -1,7 +1,8 @@
 #portrait-icon {
-  height: 0;
-  width: 0;
-  top: 0;
+  /* height: 0;
+  width: 0; */
+  /* top: 0; */
+  height: 60px;
   border-radius: 5vw;
   overflow: hidden;
 }
@@ -10,7 +11,8 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 #portrait-icon:hover {
