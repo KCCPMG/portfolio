@@ -36,6 +36,7 @@ function Content() {
         <div id="menu">
           <ContentNav 
             id="content-nav"
+            displayedSection={displayedSection}
             setDisplayedSection={setDisplayedSection}
             hide={hide}
           />
@@ -48,6 +49,8 @@ function Content() {
 
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, quasi, corporis dolores dignissimos explicabo impedit aliquam tenetur minus nobis, consequuntur neque sint! Mollitia repudiandae vel soluta nobis voluptate explicabo facere.
           </h1>
+          {/* {displayedSection === } */}
+          {/* <DetailSection /> */}
         </div>
 
         <PortraitIcon id="portrait-icon" show={show} />
