@@ -1,10 +1,10 @@
 #portrait-icon {
-  /* height: 0;
-  width: 0; */
-  /* top: 0; */
-  height: 60px;
-  border-radius: 5vw;
+  height: auto;
+  border-color: black;
+  border-width: 5px;
+  /* border-radius: 5vw; */
   overflow: hidden;
+  
 }
 
 #portrait-icon > img {
@@ -15,7 +15,7 @@
   max-height: 100%;
 }
 
-#portrait-icon:hover {
-  border-width: 5px;
+#portrait-icon:hover > img {
+  border: 3px black;
   cursor: pointer;
 }

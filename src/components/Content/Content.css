@@ -153,7 +153,6 @@
   overflow: hidden;
   animation-name: contentContainerHide;
   animation-duration: 3s;
-  animation-direction: forwards;
   animation-fill-mode: forwards;
   
 }

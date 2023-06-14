@@ -1,0 +1,37 @@
+{
+  "ME": {
+    "title": "Connor Wales",
+    "image": "src/assets/portrait.jpeg",
+    "text": "yabba dabba doo",
+    "techs": [],
+    "links": []
+  },
+  "ANCHORMAN": {
+    "title": "Anchorman Timer!",
+    "image": "src/assets/Anchorman_timer_large.jpeg",
+    "text": "While visiting my brother before his wedding, he, his fiancée, and I were going to play Anchorman: The Board Game (see link), which I had given them the preceding Christmas. Unfortunately, the timer which had come with the game was broken. While we could have replaced it with any timer, the one that was included with the game was designed to resemble the iconic bottle of Sex Panther Cologne featured in the film, complete with a panther roar when time was up. I felt as though using a different timer subtracted some of the immersion of the game, so I built this simple app to replace the functionality of the timer, include a panther growl, and add an additional bonus of dropping in one of several dozen soundclips taken from the movie. \n\nPlease note that this app was developed for Chrome and may not work in other browsers.",
+    "techs": [],
+    "links": []
+  },
+  "XKCD": {
+    "title": "XKCD Viewer",
+    "image": "src/assets/xkcd_view_large.jpeg",
+    "text": "",
+    "techs": [],
+    "links": []
+  },
+  "D20_CALC": {
+    "title": "D20 Attack Calculator",
+    "image": "src/assets/d20_attack_comparison_large.jpeg",
+    "text": "During the pandemic, my group of friends decided to start playing Dungeons and Dragons, with half of us being first-time players. As the game grew in complexity and more gameplay options became available to us, I took it upon myself to help us visualize the varying efficiency of different things that we could be doing during combat. To that end, I created this Attack Calculator. \n\nTo use it, click the button to \"Add Character\" and create a Character with whatever name you like. Once the character is created, the \"Add Attack\" button can be clicked to bring up the Attack modal to specify the chance to hit, as well as the damage of each attack done in a turn. Once the attack is created, it can be edited, or it can be displayed on the graph below. The graph shows the expected average damage of an attack against a range of Armor Classes (enemy defense scores), and attacks can be compared against one another, as well as as against attacks of other characters.",
+    "techs": [],
+    "links": []
+  },
+  "DRAGONS_HOARD": {
+    "title": "Dragon's Hoard",
+    "image": "src/assets/Dragons_Hoard_large.jpeg",
+    "text": "This was my first capstone for Springboard, and I was given the challenge of creating a full-stack application using Python, Flask, PostgreSQL, and an open API of my choice. After taking a look at the options, I decided that I wanted to utilize the Dungeons and Dragons 5th edition API to create a tool that would allow users to view and comment on official items, as well as to create items of their own. \n\n",
+    "techs": [],
+    "links": []
+  }
+}
