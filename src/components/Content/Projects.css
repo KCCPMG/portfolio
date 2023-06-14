@@ -23,12 +23,15 @@
 }
 
 
-.project-menu-option-image-container:hover {
+.project-menu-option:hover {
   cursor: pointer;
+}
+
+.project-return {
+  text-decoration: underline;
 }
 
 .project-return:hover {
   color: blue;
-  text-decoration: underline;
   cursor: pointer;
 }

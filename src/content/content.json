@@ -2,7 +2,7 @@
   "ME": {
     "title": "Connor Wales",
     "image": "src/assets/portrait.jpeg",
-    "text": "yabba dabba doo",
+    "text": "Hi! My name is Connor Wales and I am a full-stack developer. While I tried programming a bit in college, it wasn't until I was working that I discovered how badly I wanted to return to it, as my increasingly complex spreadsheets called me to learn something more. I have been learning and developing on my own in the past 5 years, going through freeCodeCamp, Python for Everyone, numerous codecademy courses and more. It wasn't until 2022 that I decided to turn that enthusiasm into a full commitment, and in early 2023 I graduated from the Springboard Software Engineering course.\n\nI am well-versed in Python and JavaScript, and have experience working with Flask, Express.js, and React. My interests have led to all sorts of coding projects with many more on the horizon, though I am generally happiest working with data on the backend, and finding new ways to put together information to deliver meaningful insights and to lower information barriers. But more than that, I am always looking to learn more. The background you see here are dynamically generated \"linked lists\" made using Three.js and react-three-fiber. To enjoy the old-school screensaver visuals, simply click \"Hide\" on the Navbar to minimize this menu, and click on the image in the bottom right corner to bring it back up.",
     "techs": [],
     "links": []
   },
@@ -10,21 +10,63 @@
     "title": "Anchorman Timer!",
     "image": "src/assets/Anchorman_timer_large.jpeg",
     "text": "While visiting my brother before his wedding, he, his fiancée, and I were going to play Anchorman: The Board Game (see link), which I had given them the preceding Christmas. Unfortunately, the timer which had come with the game was broken. While we could have replaced it with any timer, the one that was included with the game was designed to resemble the iconic bottle of Sex Panther Cologne featured in the film, complete with a panther roar when time was up. I felt as though using a different timer subtracted some of the immersion of the game, so I built this simple app to replace the functionality of the timer, include a panther growl, and add an additional bonus of dropping in one of several dozen soundclips taken from the movie. \n\nPlease note that this app was developed for Chrome and may not work in other browsers.",
-    "techs": [],
+    "techs": [
+      {
+        "name": "React",
+        "image": "src/assets/React.png"
+      }
+    ],
     "links": []
   },
   "XKCD": {
     "title": "XKCD Viewer",
     "image": "src/assets/xkcd_view_large.jpeg",
-    "text": "",
-    "techs": [],
-    "links": []
+    "text": "A viewer for xkcd comics which allows users to upvote comics they like, see which comics are popular, and to save their own personal favorites. This uses the xkcd open API, Postgres, Node.js, Express.js, React, and Bootstrap.",
+    "techs": [
+      {
+        "name": "React",
+        "image": "src/assets/React.png"
+      },
+      {
+        "name": "Express.js",
+        "image": "src/assets/express-js-icon-20.png"
+      },
+      {
+        "name": "Node.js",
+        "image": "src/assets/NodeJS.png"
+      },
+      {
+        "name": "PostgreSQL",
+        "image": "src/assets/PostgreSQL.png"
+      },
+      {
+        "name": "Bootstrap",
+        "image": "src/assets/bootstrap-icon-png-2.png"
+      }
+    ],
+    "links": [
+      {
+        "name": "Deployed at Surge.sh with Heroku",
+        "link": "https://xkcd-view.surge.sh/",
+        "image": "src/assets/xkcd_view_large.jpeg"
+      },
+      {
+        "name": "Github",
+        "link": "https://github.com/KCCPMG/capstone-2-xkcd-viewer",
+        "image": "src/assets/Github.png"
+      }
+    ]
   },
   "D20_CALC": {
     "title": "D20 Attack Calculator",
     "image": "src/assets/d20_attack_comparison_large.jpeg",
     "text": "During the pandemic, my group of friends decided to start playing Dungeons and Dragons, with half of us being first-time players. As the game grew in complexity and more gameplay options became available to us, I took it upon myself to help us visualize the varying efficiency of different things that we could be doing during combat. To that end, I created this Attack Calculator. \n\nTo use it, click the button to \"Add Character\" and create a Character with whatever name you like. Once the character is created, the \"Add Attack\" button can be clicked to bring up the Attack modal to specify the chance to hit, as well as the damage of each attack done in a turn. Once the attack is created, it can be edited, or it can be displayed on the graph below. The graph shows the expected average damage of an attack against a range of Armor Classes (enemy defense scores), and attacks can be compared against one another, as well as as against attacks of other characters.",
-    "techs": [],
+    "techs": [
+      {
+        "name": "React",
+        "image": "src/assets/React.png"
+      }
+    ],
     "links": []
   },
   "DRAGONS_HOARD": {

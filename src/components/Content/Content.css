@@ -158,9 +158,10 @@
 }
 
 .display.animate > #content-container {
+  overflow: hidden;
   animation-name: contentContainerHide;
   animation-direction: reverse;
-  animation-duration: 3s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
 }
 
@@ -170,6 +171,7 @@
 
 #content.display > #content-container > #portrait-icon {
   visibility: hidden;
+  height: 0px;
 }
 
 #content.hide > #content-container > #menu {
@@ -179,6 +181,7 @@
 
 #content.hide > #content-container > #portrait-icon {
   visibility: visible;
+  height: auto;
 }
 
 /* #content.hide > #content-container > #menu { */
