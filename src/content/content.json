@@ -4,7 +4,18 @@
     "image": "src/assets/portrait.jpeg",
     "text": "Hi! My name is Connor Wales and I am a full-stack developer. While I tried programming a bit in college, it wasn't until I was working that I discovered how badly I wanted to return to it, as my increasingly complex spreadsheets called me to learn something more. I have been learning and developing on my own in the past 5 years, going through freeCodeCamp, Python for Everyone, numerous codecademy courses and more. It wasn't until 2022 that I decided to turn that enthusiasm into a full commitment, and in early 2023 I graduated from the Springboard Software Engineering course.\n\nI am well-versed in Python and JavaScript, and have experience working with Flask, Express.js, and React. My interests have led to all sorts of coding projects with many more on the horizon, though I am generally happiest working with data on the backend, and finding new ways to put together information to deliver meaningful insights and to lower information barriers. But more than that, I am always looking to learn more. The background you see here are dynamically generated \"linked lists\" made using Three.js and react-three-fiber. To enjoy the old-school screensaver visuals, simply click \"Hide\" on the Navbar to minimize this menu, and click on the image in the bottom right corner to bring it back up.",
     "techs": [],
-    "links": []
+    "links": [
+      {
+        "name": "Github",
+        "link": "https://github.com/KCCPMG",
+        "image": "src/assets/Github.png"
+      },
+      {
+        "name": "LinkedIn",
+        "link": "https://linkedin.com/in/connor-wales",
+        "image": "src/assets/LinkedIn.png"
+      }
+    ]
   },
   "ANCHORMAN": {
     "title": "Anchorman Timer!",
@@ -16,7 +27,18 @@
         "image": "src/assets/React.png"
       }
     ],
-    "links": []
+    "links": [
+      {
+        "name": "Deployed on GitHub Pages",
+        "link": "https://kccpmg.github.io/sex-panther-timer/",
+        "image": "src/assets/Anchorman_timer_large.jpeg"
+      },
+      {
+        "name": "Github",
+        "link": "https://github.com/KCCPMG/sex-panther-timer",
+        "image": "src/assets/Github.png"
+      }
+    ]
   },
   "XKCD": {
     "title": "XKCD Viewer",
@@ -65,15 +87,62 @@
       {
         "name": "React",
         "image": "src/assets/React.png"
+      }, 
+      {
+        "name": "ChartJS",
+        "image": "src/assets/ChartJS.svg"
+      },
+      {
+        "name": "Bootstrap",
+        "image": "src/assets/bootstrap-icon-png-2.png"
       }
     ],
-    "links": []
+    "links": [
+      {
+        "name": "Deployed on GitHub Pages",
+        "link": "https://kccpmg.github.io/dnd-attack-comparison/",
+        "image": "src/assets/d20_attack_comparison_large.jpeg"
+      },
+      {
+        "name": "Github",
+        "link": "https://github.com/KCCPMG/dnd-attack-comparison",
+        "image": "src/assets/Github.png"
+      }
+    ]
   },
   "DRAGONS_HOARD": {
     "title": "Dragon's Hoard",
     "image": "src/assets/Dragons_Hoard_large.jpeg",
     "text": "This was my first capstone for Springboard, and I was given the challenge of creating a full-stack application using Python, Flask, PostgreSQL, and an open API of my choice. After taking a look at the options, I decided that I wanted to utilize the Dungeons and Dragons 5th edition API to create a tool that would allow users to view and comment on official items, as well as to create items of their own. \n\n",
-    "techs": [],
-    "links": []
+    "techs": [
+      {
+        "name": "Python",
+        "image": "src/assets/Python.webp"
+      }, 
+      {
+        "name": "Flask",
+        "image": "src/assets/Flask.png"
+      },
+      {
+        "name": "PostgreSQL",
+        "image": "src/assets/PostgreSQL.png"
+      },
+      {
+        "name": "SQLAlchemy",
+        "image": "src/assets/SQLAicon.png"
+      }
+    ],
+    "links": [
+      {
+        "name": "Deployed on Heroku",
+        "link": "https://dnd-repo.herokuapp.com/",
+        "image": "src/assets/Dragons_Hoard_large.jpeg"
+      },
+      {
+        "name": "Github",
+        "link": "https://github.com/KCCPMG/dnd-repo",
+        "image": "src/assets/Github.png"
+      }
+    ]
   }
 }

@@ -36,20 +36,19 @@
 #content {
   height: 100vh;
   width: 100vw;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background-color: rgba(0,0,0,0);
 }
 
 #content-container {
-  background-color: gray;
+  background-color: rgba(227, 221, 213, 0.85);
   width: 85%;
   height: 85%;
   overflow-y: auto;
   position: absolute;
+  border-radius: 25px;
   /* top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); */
@@ -149,6 +148,7 @@
 }
 
 
+
 .hide.animate > #content-container {
   overflow: hidden;
   animation-name: contentContainerHide;
@@ -165,23 +165,43 @@
   animation-iteration-count: infinite;
 }
 
+#content.display > #content-container {
+  padding: 25px;
+}
+
 #content.display > #content-container > #menu {
   visibility: visible;
+  opacity: 1;
+  transition-delay: 2s;
+  transition: opacity 3s;
 }
 
 #content.display > #content-container > #portrait-icon {
   visibility: hidden;
+  opacity: 0;
+  transition-delay: 2s;
+  transition: opacity 3s;
   height: 0px;
 }
 
 #content.hide > #content-container > #menu {
   visibility: hidden;
+  opacity: 0;
+  transition-delay: 2s;
+  transition: opacity 3s;
   height: 0;
 }
 
 #content.hide > #content-container > #portrait-icon {
   visibility: visible;
+  opacity: 1;
+  transition-delay: 2s;
+  transition: opacity 3s;
   height: auto;
+}
+
+#content.hide > #content-container > #portrait-icon > img {
+  object-fit: contain;
 }
 
 /* #content.hide > #content-container > #menu { */
