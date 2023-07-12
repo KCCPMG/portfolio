@@ -11,11 +11,11 @@ import './Content.css';
 
 import ME_IMAGE from '../../assets/portrait.jpeg';
 import contentJSON from '../../content/content.json';
-
+import GITHUB from '../../assets/Github.png';
 
 const { ME, D20_CALC, XKCD, DRAGONS_HOARD, ANCHORMAN } = contentJSON;
 
-
+ME.image 
 
 
 function Content() {

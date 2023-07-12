@@ -29,7 +29,7 @@
     ],
     "links": [
       {
-        "name": "Deployed on GitHub Pages",
+        "name": "Sex Panther Timer - Deployed on GitHub Pages",
         "link": "https://kccpmg.github.io/sex-panther-timer/",
         "image": "src/assets/Anchorman_timer_large.jpeg"
       },
@@ -68,7 +68,7 @@
     ],
     "links": [
       {
-        "name": "Deployed at Surge.sh with Heroku",
+        "name": "XKCD Viewer - Deployed at Surge.sh with Heroku",
         "link": "https://xkcd-view.surge.sh/",
         "image": "src/assets/xkcd_view_large.jpeg"
       },
@@ -99,7 +99,7 @@
     ],
     "links": [
       {
-        "name": "Deployed on GitHub Pages",
+        "name": "DND Attack Comparison - Deployed on GitHub Pages",
         "link": "https://kccpmg.github.io/dnd-attack-comparison/",
         "image": "src/assets/d20_attack_comparison_large.jpeg"
       },
@@ -134,7 +134,7 @@
     ],
     "links": [
       {
-        "name": "Deployed on Heroku",
+        "name": "Dragon's Hoard - Deployed on Heroku",
         "link": "https://dnd-repo.herokuapp.com/",
         "image": "src/assets/Dragons_Hoard_large.jpeg"
       },

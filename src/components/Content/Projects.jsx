@@ -1,6 +1,21 @@
 import {useState} from 'react';
 import DetailSection from './DetailSection';
+
+import ANCHORMAN from  '../../assets/Anchorman_timer_large.jpeg';
+import XKCD from  '../../assets/xkcd_view_large.jpeg';
+import D20_CALC from  '../../assets/d20_attack_comparison_large.jpeg';
+import DRAGONS_HOARD from '../../assets/Dragons_Hoard_large.jpeg';
+
 import './Projects.css';
+
+
+const imageDict = {
+  "Anchorman Timer!": ANCHORMAN,
+  "XKCD Viewer": XKCD,
+  "D20 Attack Calculator": D20_CALC,
+  "Dragon's Hoard": DRAGONS_HOARD
+}
+
 
 export default function Projects({projects}) {
   const [displayedProject, setDisplayedProject] = useState(null);
@@ -54,7 +69,7 @@ function ProjectMenu({projects, setDisplayedProject}) {
           >
             <img 
               className="project-menu-option-image"
-              src={project.image} 
+              src={imageDict[project.title]} 
               title={project.title} 
             />
           </div>

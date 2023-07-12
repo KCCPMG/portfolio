@@ -25,7 +25,7 @@ function Scene() {
   const minNodes=4;
   const maxNodes=15;
 
-  console.log(chains);
+  // console.log(chains);
 
   // const addChain = useCallback(() => {
   //   let keyId = keyGenerator.next().value;
@@ -43,9 +43,9 @@ function Scene() {
 
   const addChain = () => {
     let keyId = keyGenerator.next().value;
-    console.log("adding chain ", keyId);
+    // console.log("adding chain ", keyId);
     let chainsCopy = [...chains];
-    console.log(chainsCopy);
+    // console.log(chainsCopy);
     // console.log(chainsCopy.length);
     if (chainsCopy.length > 5) {
       // chainsCopy.shift();
@@ -59,7 +59,7 @@ function Scene() {
   }
 
   useEffect(() => {
-    console.log("Adding timeout");
+    // console.log("Adding timeout");
     setTimeout(addChain, 5000);
   }, [chains])
 
