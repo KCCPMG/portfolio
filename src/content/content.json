@@ -2,8 +2,45 @@
   "ME": {
     "title": "Connor Wales",
     "image": "src/assets/portrait.jpeg",
-    "text": "Hi! My name is Connor Wales and I am a full-stack developer. While I tried programming a bit in college, it wasn't until I was working that I discovered how badly I wanted to return to it, as my increasingly complex spreadsheets called me to learn something more. I have been learning and developing on my own in the past 5 years, going through freeCodeCamp, Python for Everyone, numerous codecademy courses and more. It wasn't until 2022 that I decided to turn that enthusiasm into a full commitment, and in early 2023 I graduated from the Springboard Software Engineering course.\n\nI am well-versed in Python and JavaScript, and have experience working with Flask, Express.js, and React. My interests have led to all sorts of coding projects with many more on the horizon, though I am generally happiest working with data on the backend, and finding new ways to put together information to deliver meaningful insights and to lower information barriers. But more than that, I am always looking to learn more. The background you see here are dynamically generated \"linked lists\" made using Three.js and react-three-fiber. To enjoy the old-school screensaver visuals, simply click \"Hide\" on the Navbar to minimize this menu, and click on the image in the bottom right corner to bring it back up.",
-    "techs": [],
+    "text": "Hi! My name is Connor Wales and I am a full-stack developer. While I tried programming a bit in college, it wasn't until I was later working when I discovered how badly I wanted to return to it, as my increasingly complex spreadsheets called me to learn something more. I have been learning and developing on my own in the past 5 years, going through freeCodeCamp, Python for Everyone, numerous codecademy courses and more. It wasn't until 2022 that I decided to turn that enthusiasm into a full commitment, and in early 2023 I graduated from the Springboard Software Engineering course.\n\nI am well-versed in Python and JavaScript, and have experience working with Flask, Express.js, and React. My interests have led to all sorts of coding projects with many more on the horizon, though I am generally happiest working with data on the backend, and finding new ways to put together information to deliver meaningful insights and to lower information barriers. But more than that, I am always looking to learn more. The background you see here are dynamically generated \"linked lists\" made using Three.js and react-three-fiber. To enjoy the old-school screensaver visuals, simply click \"Hide\" on the Navbar to minimize this menu, and click on the image in the bottom right corner to bring it back up.",
+    "techs": [
+      {
+        "name": "React",
+        "image": "src/assets/React.png"
+      },
+      {
+        "name": "Express.js",
+        "image": "src/assets/express-js-icon-20.png"
+      },
+      {
+        "name": "Node.js",
+        "image": "src/assets/NodeJS.png"
+      },
+      {
+        "name": "Python",
+        "image": "src/assets/Python.webp"
+      }, 
+      {
+        "name": "Flask",
+        "image": "src/assets/Flask.png"
+      },
+      {
+        "name": "PostgreSQL",
+        "image": "src/assets/PostgreSQL.png"
+      },
+      {
+        "name": "SQLAlchemy",
+        "image": "src/assets/SQLAicon.png"
+      },
+      {
+        "name": "Bootstrap",
+        "image": "src/assets/bootstrap-icon-png-2.png"
+      },
+      {
+        "name": "ChartJS",
+        "image": "src/assets/ChartJS.svg"
+      }
+    ],
     "links": [
       {
         "name": "Github",
