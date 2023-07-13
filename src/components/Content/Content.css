@@ -121,7 +121,7 @@
 
 @keyframes contentContainerHide {
   0% {
-    height: 100%;
+    /* height: 100%; */
     transform: translateY(0);
   }
   33% {
@@ -161,7 +161,7 @@
   overflow: hidden;
   animation-name: contentContainerHide;
   animation-direction: reverse;
-  animation-duration: 5s;
+  animation-duration: 3s;
   animation-iteration-count: infinite;
 }
 
